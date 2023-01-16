@@ -11,8 +11,8 @@ class Vect:
     """
 
     def __init__(self, items):
-        self.items = items
-        self.n = len(self.items)
+        self.__items = items
+        self.__n = len(self.items)
 
     def norm(self):
         """Euclidean norm of the vector """
@@ -36,6 +36,28 @@ class Vect:
 
         items = [element * other for element in self.items]
         return Vect(items)
+
+    @property
+    def items(self):
+        return self.__items
+
+    @items.setter
+    def items(self, values):
+        self.__items = values
+        self.__n = len(values)
+
+    @property
+    def n(self):
+        return self.__n
+
+    @n.setter
+    def n(self, value):
+
+        if self.__n < value:
+            self.items = self.items + (value-self.__n) * [0]
+        elif self.__n > value:
+            self.items = self.items[:value]
+
 
 
 

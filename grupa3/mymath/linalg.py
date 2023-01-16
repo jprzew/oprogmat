@@ -45,16 +45,16 @@ class Vect:
 
     @property
     def items(self):
-        return self.items_
+        return self.__items
 
     @items.setter
     def items(self, value):
-        self.items_ = value
-        self.n_ = len(value)
+        self.__items = value
+        self.__n = len(value)
 
     @property
     def n(self):
-        return self.n_
+        return self.__n
 
     @n.setter
     def n(self, value):
